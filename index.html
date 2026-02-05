@@ -38,7 +38,7 @@
       .bindPopup('Hola 👋 este es mi primer punto');
 
     // Cargar una ruta GPX
-    new L.GPX('DOC_Pays_Basque_2025_Short.gpx', { async: true })
+    new L.GPX('rutas/DOC_Pays_Basque_2025_Short.gpx', { async: true })
       .on('loaded', function(e) {
         map.fitBounds(e.target.getBounds());
       })
