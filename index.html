@@ -1,5 +1,37 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi primer mapa</title>
 
-<html> <head> <meta charset="utf-8" /> <title>Mi Mapa</title> <link rel="stylesheet" href="" /> <style> body { margin: 0; padding: 0; } #map { height: 100vh; width: 100vw; } </style> </head> <body> <div id="map"></div> <script src=""></script> <script src=""></script> <script> var map = L.map('map').setView([40.41, -3.70], 6); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  <!-- Estilo del mapa -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+<body>
 
-</body> </html>
+  <!-- Aquí se dibuja el mapa -->
+  <div id="map" style="height:100vh;"></div>
+
+  <!-- Código de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Crear el mapa
+    var map = L.map('map').setView([40.4168, -3.7038], 6);
+
+    // Cargar el mapa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Añadir un punto
+    L.marker([40.4168, -3.7038])
+      .addTo(map)
+      .bindPopup('Hola 👋 este es mi primer punto');
+  </script>
+
+</body>
+</html>
