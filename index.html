@@ -15,12 +15,17 @@
   <!-- Aquí se dibuja el mapa -->
   <div id="map" style="height:100vh;"></div>
 
-  <!-- Código de Leaflet -->
+  <!-- Librerías -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-gpx/gpx.js"></script>
 
+  <!-- TU código -->
   <script>
     // Crear el mapa
-    var map = L.map('map').setView([43.4661030765253, -1.4489135294706588], 6);
+    var map = L.map('map').setView(
+      [43.4661030765253, -1.4489135294706588],
+      6
+    );
 
     // Cargar el mapa base
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -32,14 +37,12 @@
       .addTo(map)
       .bindPopup('Hola 👋 este es mi primer punto');
 
-    <script src="https://unpkg.com/leaflet-gpx/gpx.js"></script>
-
     // Cargar una ruta GPX
-  new L.GPX('DOC_Pays_Basque_2025_Short.gpx', { async: true })
-    .on('loaded', function(e) {
-      map.fitBounds(e.target.getBounds());
-    })
-    .addTo(map);
+    new L.GPX('DOC_Pays_Basque_2025_Short.gpx', { async: true })
+      .on('loaded', function(e) {
+        map.fitBounds(e.target.getBounds());
+      })
+      .addTo(map);
   </script>
 
 </body>
