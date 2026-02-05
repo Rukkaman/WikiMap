@@ -31,6 +31,15 @@
     L.marker([43.4661030765253, -1.4489135294706588])
       .addTo(map)
       .bindPopup('Hola 👋 este es mi primer punto');
+
+    <script src="https://unpkg.com/leaflet-gpx/gpx.js"></script>
+
+    // Cargar una ruta GPX
+  new L.GPX('ruta.gpx', { async: true })
+    .on('loaded', function(e) {
+      map.fitBounds(e.target.getBounds());
+    })
+    .addTo(map);
   </script>
 
 </body>
